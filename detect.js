@@ -4,9 +4,6 @@ let classifier1;
 // Model URL
 let imageModelURL = 'human-model/';
 let imageModelURL1 = 'mask-model/';
-const Http = new XMLHttpRequest();
-const url='http://blynk-cloud.com/l2QnUel3srvYrrHl4H37ZoLt7IDdQRqw/update/D15?value=1';
-const url1='http://blynk-cloud.com/l2QnUel3srvYrrHl4H37ZoLt7IDdQRqw/update/D15?value=0';
 
 // Video
 let video1;
@@ -41,8 +38,7 @@ function draw() {
   if(label1 === "with_mask" && label === "person"){
     background(0,255,0,50);
     textStr = "You are safe with mask!";
-    Http.open("GET", url);
-    Http.send();
+
     setTimeout(function(){
       //to be filled
     }, 3000);
@@ -50,8 +46,6 @@ function draw() {
   else if(label1 === "without_mask" && label === "person"){
     background(255,0,0,50);
     textStr = "Please wear mask!";
-    Http.open("GET", url1);
-    Http.send();
   }
   else if(label === "noperson"){
     textStr = "No human found.";
